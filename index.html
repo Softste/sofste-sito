@@ -213,8 +213,9 @@
             <p class="contact__lead">Il primo colloquio è gratuito.</p>
           </div>
 
-          <!-- TODO: inserire in data-endpoint l'indirizzo del servizio che riceve il modulo (es. Formspree) -->
-          <form class="form" id="contact-form" method="post" data-endpoint="">
+          <!-- Modulo gestito da Netlify Forms: i messaggi arrivano nel pannello Netlify -->
+          <form class="form" id="contact-form" name="contatto" method="post" action="/" data-netlify="true" netlify-honeypot="sito-web">
+            <input type="hidden" name="form-name" value="contatto">
             <div class="field">
               <label for="nome">Nome e azienda</label>
               <input id="nome" name="nome" type="text" autocomplete="name" required>
@@ -229,7 +230,7 @@
             </div>
             <div class="field field--trap" aria-hidden="true">
               <label for="sito">Lascia vuoto questo campo</label>
-              <input id="sito" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+              <input id="sito" name="sito-web" type="text" tabindex="-1" autocomplete="off">
             </div>
             <button class="btn btn--primary" type="submit">Invia il messaggio</button>
             <p class="form__status" role="status" aria-live="polite"></p>

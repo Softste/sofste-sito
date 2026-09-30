@@ -50,19 +50,14 @@
       return;
     }
 
-    var endpoint = form.dataset.endpoint;
-    if (!endpoint) {
-      showStatus("Il modulo non è ancora attivo: manca il collegamento al servizio di invio.", true);
-      return;
-    }
-
     button.disabled = true;
     showStatus("Invio in corso…");
 
-    fetch(endpoint, {
+    // Netlify Forms riceve i dati sulla pagina stessa, in formato urlencoded
+    fetch("/", {
       method: "POST",
-      body: new FormData(form),
-      headers: { Accept: "application/json" }
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form)).toString()
     })
       .then(function (response) {
         if (!response.ok) throw new Error("Risposta " + response.status);
