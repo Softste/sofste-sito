@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sofste">
+  <rect width="64" height="64" rx="16" fill="#FFFFFF"/>
+  <g transform="translate(9.5 9.5) scale(1.875)" fill="none" stroke="#0B0E0D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 7h-7a2.5 2.5 0 0 0 0 5h4a2.5 2.5 0 0 1 0 5H7"/>
+    <circle cx="17" cy="7" r="1.6" fill="#0B0E0D"/>
+    <circle cx="7" cy="17" r="1.6" fill="#0B0E0D"/>
+  </g>
+</svg>
