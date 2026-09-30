@@ -46,6 +46,54 @@
   <main id="contenuto">
     <!-- Hero -->
     <section class="hero on-dark" id="top">
+      <!-- Sfondo decorativo animato: griglia di punti, percorsi di workflow e nodi -->
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__rail hero__rail--left"></span>
+        <span class="hero__rail hero__rail--right"></span>
+        <svg class="hero__net" viewBox="0 0 1440 880" preserveAspectRatio="xMaxYMin slice" fill="none" focusable="false">
+          <g class="net-lines">
+            <path d="M-20 48 H1180 Q1196 48 1196 64 V190 Q1196 206 1212 206 H1460"/>
+            <path d="M1320 -20 V330 Q1320 346 1336 346 H1384 Q1400 346 1400 362 V516 Q1400 532 1384 532 H-20"/>
+            <path d="M-20 822 H1460"/>
+          </g>
+          <g class="net-pulses">
+            <path pathLength="1000" stroke-dasharray="45 955" style="--dur: 9s; --delay: 0s" d="M-20 48 H1180 Q1196 48 1196 64 V190 Q1196 206 1212 206 H1460"/>
+            <path pathLength="1000" stroke-dasharray="45 955" style="--dur: 9s; --delay: -4.5s" d="M-20 48 H1180 Q1196 48 1196 64 V190 Q1196 206 1212 206 H1460"/>
+            <path pathLength="1000" stroke-dasharray="35 965" style="--dur: 12s; --delay: -2s" d="M1320 -20 V330 Q1320 346 1336 346 H1384 Q1400 346 1400 362 V516 Q1400 532 1384 532 H-20"/>
+            <path pathLength="1000" stroke-dasharray="35 965" style="--dur: 12s; --delay: -8s" d="M1320 -20 V330 Q1320 346 1336 346 H1384 Q1400 346 1400 362 V516 Q1400 532 1384 532 H-20"/>
+            <path pathLength="1000" stroke-dasharray="50 950" style="--dur: 10s; --delay: -3s" d="M-20 822 H1460"/>
+          </g>
+          <g class="net-node" style="--dur: 4s; --delay: -1s">
+            <rect x="622" y="30" width="36" height="36" rx="10"/>
+            <circle class="net-dot" cx="640" cy="48" r="4.5"/>
+          </g>
+          <g class="net-node" style="--dur: 3.2s; --delay: 0s">
+            <circle class="net-ring" cx="1196" cy="127" r="12"/>
+            <rect x="1178" y="109" width="36" height="36" rx="10"/>
+            <circle class="net-dot" cx="1196" cy="127" r="4.5"/>
+            <text class="net-label" x="1164" y="131" text-anchor="end">ordine ricevuto</text>
+          </g>
+          <g class="net-node" style="--dur: 3.2s; --delay: -1.1s">
+            <circle class="net-ring" cx="1320" cy="206" r="12"/>
+            <rect x="1302" y="188" width="36" height="36" rx="10"/>
+            <circle class="net-dot" cx="1320" cy="206" r="4.5"/>
+            <text class="net-label" x="1350" y="192">leggi dati</text>
+          </g>
+          <g class="net-node" style="--dur: 3.2s; --delay: -2.2s">
+            <circle class="net-ring" cx="1400" cy="440" r="12"/>
+            <rect x="1382" y="422" width="36" height="36" rx="10"/>
+            <circle class="net-dot" cx="1400" cy="440" r="4.5"/>
+          </g>
+          <g class="net-node" style="--dur: 4s; --delay: -0.5s">
+            <rect x="282" y="804" width="36" height="36" rx="10"/>
+            <circle class="net-dot" cx="300" cy="822" r="4.5"/>
+          </g>
+          <g class="net-node" style="--dur: 4s; --delay: -3s">
+            <rect x="982" y="804" width="36" height="36" rx="10"/>
+            <circle class="net-dot" cx="1000" cy="822" r="4.5"/>
+          </g>
+        </svg>
+      </div>
       <div class="wrap hero__inner">
         <div class="hero__intro">
           <p class="eyebrow hero__eyebrow">Software e automazioni per aziende</p>

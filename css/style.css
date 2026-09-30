@@ -274,9 +274,136 @@ svg {
 
 /* ---------- Hero ---------- */
 .hero {
+  position: relative;
+  overflow: hidden;
   padding-block: 48px var(--section);
 }
+
+/* Sfondo animato: griglia di punti che scorre, più binari (mobile) o rete di workflow (desktop) */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(#1f2823 1.2px, transparent 1.2px);
+  background-size: 32px 32px;
+  animation: hero-grid 6s linear infinite;
+}
+.hero__rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line-dark);
+}
+.hero__rail--left {
+  left: calc(var(--gutter) / 2);
+}
+.hero__rail--right {
+  right: calc(var(--gutter) / 2);
+}
+.hero__rail::after {
+  content: "";
+  position: absolute;
+  left: -0.5px;
+  width: 2px;
+  height: 56px;
+  border-radius: 2px;
+  background: var(--accent);
+  animation: hero-rail 7s linear infinite;
+}
+.hero__rail--right::after {
+  animation-duration: 9s;
+  animation-delay: -4s;
+  animation-direction: reverse;
+}
+.hero__net {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+}
+.net-lines path {
+  stroke: var(--line-dark);
+  stroke-width: 1.5;
+}
+.net-pulses path {
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  animation: hero-flow var(--dur, 9s) linear var(--delay, 0s) infinite;
+}
+.net-node rect {
+  fill: var(--ink);
+  stroke: #34403a;
+  stroke-width: 1.5;
+}
+.net-dot {
+  fill: currentColor;
+  animation: hero-blink var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
+}
+.net-ring {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-ring var(--dur, 3.2s) ease-out var(--delay, 0s) infinite;
+}
+.net-label {
+  fill: #8a958f;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+@keyframes hero-grid {
+  to {
+    background-position: 32px 32px;
+  }
+}
+@keyframes hero-rail {
+  from {
+    top: -56px;
+  }
+  to {
+    top: 100%;
+  }
+}
+@keyframes hero-flow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes hero-blink {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes hero-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.hero .btn--ghost {
+  background: var(--ink);
+}
 .hero__inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -854,6 +981,19 @@ svg {
   .hero {
     padding-block: 96px 112px;
   }
+  .hero__rail {
+    display: none;
+  }
+  .hero__net {
+    display: block;
+  }
+  /* Sfumatura da sinistra: tiene leggibili titolo e testo */
+  .hero__bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(11, 14, 13, 0.88) 0%, rgba(11, 14, 13, 0.6) 50%, rgba(11, 14, 13, 0) 82%);
+  }
   .hero__inner {
     gap: 56px;
   }
@@ -1027,5 +1167,16 @@ svg {
   }
   .btn {
     transition: none;
+  }
+  .hero__bg,
+  .hero__rail::after,
+  .net-pulses path,
+  .net-dot,
+  .net-ring {
+    animation: none;
+  }
+  .hero__rail::after,
+  .net-ring {
+    display: none;
   }
 }
